@@ -1,0 +1,21 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://32lc8wffybep"]
+
+[ext_resource type="Texture2D" uid="uid://di62x20j0my11" path="res://Art/Road.png" id="1_svnd7"]
+[ext_resource type="Texture2D" uid="uid://b3l5e5dx32bbc" path="res://Art/RoadWithStripe.png" id="2_hr2cj"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_si2rc"]
+resource_name = "Road"
+texture = ExtResource("1_svnd7")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7kxru"]
+resource_name = "RoadWithStripe"
+texture = ExtResource("2_hr2cj")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_si2rc")
+sources/1 = SubResource("TileSetAtlasSource_7kxru")
