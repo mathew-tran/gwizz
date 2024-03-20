@@ -29,6 +29,8 @@ func SplitString(s: String):
 	return result
 
 func ShowText(data):
+	$Panel/Label.text =""
+	$Panel/Label.visible_ratio= 0
 	$AnimationPlayer.play("animIn")
 	await $AnimationPlayer.animation_finished
 	get_tree().paused = true
@@ -50,6 +52,8 @@ func Close():
 	$AnimationPlayer.play_backwards("animIn")
 	await $AnimationPlayer.animation_finished
 	get_tree().paused = false
+	$Panel/Label.text =""
+	$Panel/Label.visible_ratio = 0
 
 func PaginateForward():
 	Index += 1

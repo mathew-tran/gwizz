@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dllw3a66aywaj"]
+
+[ext_resource type="Texture2D" uid="uid://pnppcabtxhfk" path="res://Art/Cursor.png" id="1_lo6n1"]
+[ext_resource type="Script" path="res://Scripts/UI/Cursor.gd" id="2_m623h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6dpc"]
+size = Vector2(22, 22)
+
+[node name="Cursor" type="Sprite2D"]
+visible = false
+top_level = true
+z_index = 200
+z_as_relative = false
+texture = ExtResource("1_lo6n1")
+script = ExtResource("2_m623h")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_s6dpc")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

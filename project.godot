@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 
 Finder="*res://Scripts/AutoLoad/Finder.gd"
 Helper="*res://Scripts/AutoLoad/Helper.gd"
+Cursor="*res://Prefabs/UI/Cursor.tscn"
+Definitions="*res://Scripts/AutoLoad/Definitions.gd"
 
 [display]
 
@@ -63,3 +65,8 @@ click={
 [layer_names]
 
 2d_physics/layer_3="Player"
+2d_physics/layer_4="Interactable"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

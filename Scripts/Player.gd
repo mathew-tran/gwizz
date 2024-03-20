@@ -3,7 +3,7 @@ extends CharacterBody2D
 # follow tutorial https://www.youtube.com/watch?v=mJ1ZfGDTMCY
 
 var WheelDistance = 70
-var SteeringAngle = 15
+var SteeringAngle = 25
 
 var SteerDirection = 15
 
