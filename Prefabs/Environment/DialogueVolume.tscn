@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://xnt5dnebqu1n"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/DialogueVolume.gd" id="1_dwsje"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_le73l"]
+
+[node name="DialogueVolume" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_dwsje")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_le73l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
