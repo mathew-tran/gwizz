@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctturw3ebe1lm"]
+
+[ext_resource type="PackedScene" uid="uid://dgpxr7mxt8roe" path="res://Prefabs/UI/MissionObjective.tscn" id="1_60vg8"]
+[ext_resource type="Script" path="res://Scripts/UI/DonutMission.gd" id="2_7vrmm"]
+
+[node name="MissionObjective" instance=ExtResource("1_60vg8")]
+script = ExtResource("2_7vrmm")
+
+[node name="Label" parent="." index="1"]
+text = "Go to Donut Shop!"

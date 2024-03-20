@@ -17,10 +17,11 @@ func OverridePoliceman(overrideContent, missionRef):
 
 
 func OnInteract():
-	Helper.SendDialogue(CurrentContent)
 	if bIsHooked:
 		HookPoliceManToBlocks()
 		bIsHooked = false
+	Helper.SendDialogue(CurrentContent)
+
 
 func HookPoliceManToBlocks():
 	Finder.GetDialogue().DialogueComplete.connect(OnFinishedTalking)

@@ -5,9 +5,10 @@ extends Control
 @onready var MissionPrefab = preload("res://Prefabs/UI/MissionObjective.tscn")
 
 var MissionList = [
+	"res://Prefabs/UI/Missions/TalkToPolicemanMission.tscn",
 	"res://Prefabs/UI/Missions/Control1Mission.tscn",
 	"res://Prefabs/UI/Missions/Control2Mission.tscn",
-	"res://Prefabs/UI/Missions/TalkToPolicemanMission.tscn",
+	"res://Prefabs/UI/Missions/DonutMission.tscn",
 	"res://Prefabs/UI/Missions/DrunkManMission.tscn"
 	]
 
