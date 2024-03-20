@@ -42,7 +42,7 @@ func GetInput():
 		Acceleration = transform.x * Braking
 
 func ApplyFriction():
-	if velocity.length() < 10:
+	if velocity.length() < 5:
 		velocity = Vector2.ZERO
 	var frictionForce = velocity * Friction
 	var dragForce = velocity * velocity.length() * Drag
