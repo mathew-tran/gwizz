@@ -5,6 +5,8 @@ var LastIndex = 0
 
 var Data = []
 
+signal DialogueComplete
+
 func _ready():
 	add_to_group("DIALOGUE")
 
@@ -54,6 +56,7 @@ func Close():
 	get_tree().paused = false
 	$Panel/Label.text =""
 	$Panel/Label.visible_ratio = 0
+	emit_signal("DialogueComplete")
 
 func PaginateForward():
 	Index += 1

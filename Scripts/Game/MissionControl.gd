@@ -7,7 +7,7 @@ extends Control
 var MissionList = [
 	"res://Prefabs/UI/Missions/Control1Mission.tscn",
 	"res://Prefabs/UI/Missions/Control2Mission.tscn",
-	"res://Prefabs/UI/Missions/TalkToInvestigatorMission.tscn",
+	"res://Prefabs/UI/Missions/TalkToPolicemanMission.tscn",
 	"res://Prefabs/UI/Missions/DrunkManMission.tscn"
 	]
 

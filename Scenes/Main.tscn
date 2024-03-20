@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ck7tu23ne7fsa"]
+[gd_scene load_steps=15 format=3 uid="uid://ck7tu23ne7fsa"]
 
 [ext_resource type="TileSet" uid="uid://32lc8wffybep" path="res://Tileset/GroundTileset.tres" id="1_8uoc4"]
 [ext_resource type="PackedScene" uid="uid://1nfw2wq1lcai" path="res://Prefabs/Player.tscn" id="2_nbqxh"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bketfc5xmqbbx" path="res://Prefabs/Environment/Interactable.tscn" id="4_vw70v"]
 [ext_resource type="PackedScene" uid="uid://bmwfmn7xo6s4i" path="res://Prefabs/UI/Dialogue.tscn" id="5_aullg"]
 [ext_resource type="PackedScene" uid="uid://xnt5dnebqu1n" path="res://Prefabs/Environment/DialogueVolume.tscn" id="6_aiaw2"]
+[ext_resource type="Script" path="res://Scripts/Environment/InteractablePoliceman.gd" id="6_fbb3f"]
 [ext_resource type="PackedScene" uid="uid://dnunhfcck0tpw" path="res://Prefabs/UI/Mission.tscn" id="7_csf2y"]
+[ext_resource type="PackedScene" uid="uid://d0oc8p6bltc4d" path="res://Prefabs/Environment/PolicemanInteractable.tscn" id="10_7ox17"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d185f"]
 resource_name = "Barrier"
@@ -56,6 +58,11 @@ position = Vector2(-4528, 2960)
 
 [node name="Gate3" parent="EnvironmentPieces" groups=["TutorialGate"] instance=ExtResource("4_sd1lh")]
 position = Vector2(-4528, 2992)
+
+[node name="Policeman1" parent="EnvironmentPieces" groups=["Policeman1"] instance=ExtResource("10_7ox17")]
+position = Vector2(-4488, 2896)
+script = ExtResource("6_fbb3f")
+Content = "Hello."
 
 [node name="Sprite2D" parent="." instance=ExtResource("4_vw70v")]
 position = Vector2(195, -25)
