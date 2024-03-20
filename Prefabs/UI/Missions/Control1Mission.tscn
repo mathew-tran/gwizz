@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://1q060vamjov4"]
+
+[ext_resource type="PackedScene" uid="uid://dgpxr7mxt8roe" path="res://Prefabs/UI/MissionObjective.tscn" id="1_kur80"]
+[ext_resource type="Script" path="res://Scripts/UI/Control1Mission.gd" id="2_wnv81"]
+
+[node name="MissionObjective" instance=ExtResource("1_kur80")]
+script = ExtResource("2_wnv81")
+
+[node name="Label" parent="." index="1"]
+text = "Press 'W' to move Forward"

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ducp856b8s8ux"]
+
+[ext_resource type="PackedScene" uid="uid://dgpxr7mxt8roe" path="res://Prefabs/UI/MissionObjective.tscn" id="1_swedy"]
+[ext_resource type="Script" path="res://Scripts/UI/DrunkManMission.gd" id="2_33key"]
+
+[node name="MissionObjective" instance=ExtResource("1_swedy")]
+script = ExtResource("2_33key")

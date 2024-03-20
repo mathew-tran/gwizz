@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnunhfcck0tpw"]
+
+[ext_resource type="PackedScene" uid="uid://dgpxr7mxt8roe" path="res://Prefabs/UI/MissionObjective.tscn" id="1_275fx"]
+[ext_resource type="Script" path="res://Scripts/Game/MissionControl.gd" id="1_qpsid"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8ypv"]
+bg_color = Color(0.384314, 0.180392, 0.298039, 1)
+border_width_left = 3
+border_width_right = 400
+border_width_bottom = 3
+border_color = Color(0.545098, 0.898039, 1, 1)
+
+[node name="Mission" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_qpsid")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(1010, 40)
+layout_mode = 0
+offset_right = 1010.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_h8ypv")
+
+[node name="Missions" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 245.0
+offset_bottom = 45.0
+
+[node name="HBoxContainer" parent="Missions" instance=ExtResource("1_275fx")]
+layout_mode = 2

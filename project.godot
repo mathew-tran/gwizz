@@ -13,7 +13,6 @@ config_version=5
 config/name="Gwizz"
 run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-run/max_fps=30
 config/icon="res://icon.svg"
 
 [autoload]
@@ -70,3 +69,4 @@ click={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

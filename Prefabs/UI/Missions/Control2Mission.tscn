@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://k5ovd7bqadrt"]
+
+[ext_resource type="PackedScene" uid="uid://dgpxr7mxt8roe" path="res://Prefabs/UI/MissionObjective.tscn" id="1_5io5m"]
+[ext_resource type="Script" path="res://Scripts/UI/Control2Mission.gd" id="2_b1uvc"]
+
+[node name="MissionObjective" instance=ExtResource("1_5io5m")]
+script = ExtResource("2_b1uvc")
+
+[node name="Label" parent="." index="1"]
+text = "Press 'S' to go backwards"

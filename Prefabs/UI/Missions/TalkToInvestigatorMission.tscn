@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cce7bchtgayhy"]
+
+[ext_resource type="PackedScene" uid="uid://dgpxr7mxt8roe" path="res://Prefabs/UI/MissionObjective.tscn" id="1_gnngi"]
+[ext_resource type="Script" path="res://Scripts/UI/TalkToInvestigatorMission.gd" id="2_kk78b"]
+
+[node name="MissionObjective" instance=ExtResource("1_gnngi")]
+script = ExtResource("2_kk78b")
+
+[node name="Label" parent="." index="1"]
+text = "Click on investigator to talk"
