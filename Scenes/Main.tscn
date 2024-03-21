@@ -304,6 +304,7 @@ Content = "Hello."
 
 [node name="Sprite2D" parent="." instance=ExtResource("4_vw70v")]
 position = Vector2(195, -25)
+EventType = null
 Content = "Man is drunk."
 
 [node name="Player" parent="." instance=ExtResource("2_nbqxh")]
@@ -335,3 +336,4 @@ bOneTime = true
 
 [node name="Area2D" parent="." instance=ExtResource("19_08ann")]
 position = Vector2(2608, 336)
+EventType = null
