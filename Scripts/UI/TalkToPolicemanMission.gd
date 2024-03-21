@@ -12,11 +12,6 @@ func StartTracking():
 
 		policeman[0].OverridePoliceman(string, self)
 
-func _input(event):
-	if bIsTracking:
-		if event.is_action("decelerate"):
-			CompleteObjective()
-			bIsTracking = false
 
 func Execute():
 	var gates = get_tree().get_nodes_in_group("TutorialGate")
