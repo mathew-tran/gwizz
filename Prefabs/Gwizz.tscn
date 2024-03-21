@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://bkn3yewwgd3qg"]
+
+[ext_resource type="Texture2D" uid="uid://dk8vf5accclqw" path="res://Art/Gwizz.png" id="1_e60kf"]
+[ext_resource type="Script" path="res://Scripts/Environment/InteractableGwizz.gd" id="1_sxkiq"]
+
+[sub_resource type="Animation" id="Animation_ehlvo"]
+resource_name = "walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, -1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wu65x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u00xg"]
+resource_name = "eager"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1, 1), Vector2(1, -2), Vector2(-1, 1), Vector2(-1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tcmel"]
+resource_name = "shake"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(-1, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uhpsh"]
+_data = {
+"RESET": SubResource("Animation_wu65x"),
+"eager": SubResource("Animation_u00xg"),
+"shake": SubResource("Animation_tcmel"),
+"walk": SubResource("Animation_ehlvo")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f0h6w"]
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_sxkiq")
+InteractType = 2
+Content = "BARK BARK"
+
+[node name="Gwizz" type="Sprite2D" parent="."]
+texture = ExtResource("1_e60kf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Gwizz"]
+libraries = {
+"": SubResource("AnimationLibrary_uhpsh")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 3)
+shape = SubResource("CircleShape2D_f0h6w")

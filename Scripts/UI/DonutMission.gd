@@ -4,9 +4,8 @@ var bIsTracking = false
 
 func StartTracking():
 	bIsTracking = true
-	var string = "Your stomach begins to grumble. You crave .. \n"
-	string += "Donuts!"
-	string += "Find some donuts on the west side of town."
+	var string = "Remember to get some donuts! Greg already paid for them for you! \n"
+	string += "Find some donuts on the east side of town."
 
 	Helper.SendDialogue(string)
 	EventManager.DonutInteract.connect(OnDonutInteract)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://ck7tu23ne7fsa"]
+[gd_scene load_steps=42 format=3 uid="uid://ck7tu23ne7fsa"]
 
 [ext_resource type="TileSet" uid="uid://32lc8wffybep" path="res://Tileset/GroundTileset.tres" id="1_8uoc4"]
 [ext_resource type="PackedScene" uid="uid://1nfw2wq1lcai" path="res://Prefabs/Player.tscn" id="2_nbqxh"]
@@ -22,7 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://bt7rtje3l5rcg" path="res://Art/Trees.png" id="11_a3t15"]
 [ext_resource type="Texture2D" uid="uid://dp4vpfac3hnx8" path="res://Art/RoadLines.png" id="12_hv68a"]
 [ext_resource type="Texture2D" uid="uid://btfclfacjiu1j" path="res://Art/Alcohol.png" id="14_57oe5"]
+[ext_resource type="PackedScene" uid="uid://bkn3yewwgd3qg" path="res://Prefabs/Gwizz.tscn" id="19_2sp0l"]
 [ext_resource type="PackedScene" uid="uid://bu5pxhnuw8rrx" path="res://Prefabs/Environment/DonutShopInteractable.tscn" id="19_08ann"]
+[ext_resource type="PackedScene" uid="uid://dlysxj02yahok" path="res://Prefabs/UI/Money.tscn" id="22_tomtr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0vyd1"]
 resource_name = "Black"
@@ -355,10 +357,19 @@ position = Vector2(195, -25)
 EventType = null
 Content = "Man is drunk."
 
+[node name="Gwizz" parent="." instance=ExtResource("19_2sp0l")]
+position = Vector2(-4360, 2896)
+
 [node name="Player" parent="." instance=ExtResource("2_nbqxh")]
-position = Vector2(-4599, 2958)
+position = Vector2(-4599, 2989)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Money" parent="CanvasLayer" instance=ExtResource("22_tomtr")]
+offset_left = 4.0
+offset_top = 36.0
+offset_right = 44.0
+offset_bottom = 76.0
 
 [node name="Dialogue" parent="CanvasLayer" instance=ExtResource("5_aullg")]
 
@@ -385,3 +396,5 @@ bOneTime = true
 [node name="Area2D" parent="." instance=ExtResource("19_08ann")]
 position = Vector2(2608, 336)
 EventType = null
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]

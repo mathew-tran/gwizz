@@ -94,3 +94,9 @@ position = Vector2(-21, -11)
 
 [node name="WheelRight" type="Node2D" parent="."]
 position = Vector2(-21, 9)
+
+[node name="MoveCheckTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="MoveCheckTimer" to="." method="_on_move_check_timer_timeout"]

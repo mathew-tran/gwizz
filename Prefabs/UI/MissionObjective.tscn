@@ -79,7 +79,7 @@ theme_override_colors/font_color = Color(0.376471, 0.560784, 0.811765, 1)
 theme_override_colors/font_outline_color = Color(0.545098, 0.898039, 1, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("4_vp2ey")
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 10
 text = "Do the thing"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
