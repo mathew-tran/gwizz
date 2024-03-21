@@ -9,10 +9,8 @@ func StartTracking():
 	string += "Find some donuts on the west side of town."
 
 	Helper.SendDialogue(string)
+	EventManager.DonutInteract.connect(OnDonutInteract)
 
-func _input(event):
-	if bIsTracking:
-		if event.is_action("decelerate"):
-			CompleteObjective()
-			bIsTracking = false
+func OnDonutInteract():
+	CompleteObjective()
 

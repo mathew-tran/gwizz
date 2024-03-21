@@ -21,6 +21,11 @@ Finder="*res://Scripts/AutoLoad/Finder.gd"
 Helper="*res://Scripts/AutoLoad/Helper.gd"
 Cursor="*res://Prefabs/UI/Cursor.tscn"
 Definitions="*res://Scripts/AutoLoad/Definitions.gd"
+EventManager="*res://Scripts/AutoLoad/EventManager.gd"
+
+[debug]
+
+settings/stdout/print_fps=true
 
 [display]
 

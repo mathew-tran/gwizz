@@ -5,6 +5,7 @@ extends Area2D
 
 func OnInteract():
 	Helper.SendDialogue(Content)
+	EventManager.BroadcastInteract(InteractType)
 
 func GetInteractType():
 	return InteractType

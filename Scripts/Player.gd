@@ -7,7 +7,7 @@ var SteeringAngle = 25
 
 var SteerDirection = 15
 
-var EnginePower = 800
+var EnginePower = 600
 var Acceleration = Vector2.ZERO
 
 var Friction = -.9
