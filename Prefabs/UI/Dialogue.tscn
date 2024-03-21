@@ -129,6 +129,7 @@ pivot_offset = Vector2(200, 125)
 theme = SubResource("Theme_jjrvv")
 
 [node name="Label" type="Label" parent="Panel"]
+modulate = Color(0.545098, 0.898039, 1, 1)
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 1
 anchors_preset = 8
@@ -150,6 +151,7 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="Prompt Text" type="Label" parent="Panel"]
+modulate = Color(0.545098, 0.898039, 1, 1)
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 1
 anchors_preset = 7

@@ -1,12 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://1nfw2wq1lcai"]
+[gd_scene load_steps=8 format=3 uid="uid://1nfw2wq1lcai"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_iyi34"]
 [ext_resource type="Texture2D" uid="uid://26pjyxdu1gx3" path="res://Art/Car.png" id="1_vwpdu"]
 [ext_resource type="Texture2D" uid="uid://bk7gt7o7573h4" path="res://Art/WhitePixel.png" id="3_r4c1d"]
+[ext_resource type="Script" path="res://Scripts/FX/LineTrail.gd" id="4_ovlyj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qw0p4"]
 radius = 12.9988
 height = 47.9956
+
+[sub_resource type="Gradient" id="Gradient_xtg8e"]
+offsets = PackedFloat32Array(0, 0.942308, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.903846, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_us3iv"]
+colors = PackedColorArray(0.376471, 0.560784, 0.811765, 1, 0.545098, 0.898039, 1, 1)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 5
@@ -25,8 +33,8 @@ shape = SubResource("CapsuleShape2D_qw0p4")
 modulate = Color(0.545098, 0.898039, 1, 1)
 show_behind_parent = true
 position = Vector2(-21, -11)
-amount = 10
-lifetime = 10.0
+amount = 40
+lifetime = 20.0
 speed_scale = 20.0
 texture = ExtResource("3_r4c1d")
 direction = Vector2(-1, 0)
@@ -35,13 +43,14 @@ initial_velocity_min = 1.0
 initial_velocity_max = 2.0
 scale_amount_min = 0.4
 scale_amount_max = 0.5
+color_ramp = SubResource("Gradient_xtg8e")
 
 [node name="GPUParticles2D2" type="CPUParticles2D" parent="."]
 modulate = Color(0.545098, 0.898039, 1, 1)
 show_behind_parent = true
 position = Vector2(-21, 9)
-amount = 10
-lifetime = 10.0
+amount = 40
+lifetime = 20.0
 speed_scale = 20.0
 texture = ExtResource("3_r4c1d")
 direction = Vector2(-1, 0)
@@ -50,3 +59,38 @@ initial_velocity_min = 1.0
 initial_velocity_max = 2.0
 scale_amount_min = 0.4
 scale_amount_max = 0.5
+color_ramp = SubResource("Gradient_xtg8e")
+
+[node name="Line2D" type="Line2D" parent="."]
+show_behind_parent = true
+position = Vector2(-21, -10)
+width = 3.0
+default_color = Color(0.376471, 0.560784, 0.811765, 1)
+gradient = SubResource("Gradient_us3iv")
+texture = ExtResource("3_r4c1d")
+texture_mode = 2
+begin_cap_mode = 1
+end_cap_mode = 1
+antialiased = true
+script = ExtResource("4_ovlyj")
+ParentRef = NodePath("../WheelLeft")
+
+[node name="Line2D2" type="Line2D" parent="."]
+show_behind_parent = true
+position = Vector2(-21, 11)
+width = 3.0
+default_color = Color(0.376471, 0.560784, 0.811765, 1)
+gradient = SubResource("Gradient_us3iv")
+texture = ExtResource("3_r4c1d")
+texture_mode = 2
+begin_cap_mode = 1
+end_cap_mode = 1
+antialiased = true
+script = ExtResource("4_ovlyj")
+ParentRef = NodePath("../WheelRight")
+
+[node name="WheelLeft" type="Node2D" parent="."]
+position = Vector2(-21, -11)
+
+[node name="WheelRight" type="Node2D" parent="."]
+position = Vector2(-21, 9)
