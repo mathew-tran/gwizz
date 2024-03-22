@@ -7,7 +7,7 @@ func StartTracking():
 
 func _input(event):
 	if bIsTracking:
-		if event.is_action("decelerate"):
+		if event.is_action_pressed("decelerate"):
 			CompleteObjective()
 			bIsTracking = false
 

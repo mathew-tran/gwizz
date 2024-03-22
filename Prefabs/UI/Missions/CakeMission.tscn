@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://jyhjwsc0l1fk"]
+
+[ext_resource type="PackedScene" uid="uid://dgpxr7mxt8roe" path="res://Prefabs/UI/MissionObjective.tscn" id="1_nsbt1"]
+[ext_resource type="Script" path="res://Scripts/UI/CakeMission.gd" id="2_js62e"]
+
+[node name="MissionObjective" instance=ExtResource("1_nsbt1")]
+script = ExtResource("2_js62e")
+
+[node name="Label" parent="." index="1"]
+text = "Collect the Cake from the Cakery!"

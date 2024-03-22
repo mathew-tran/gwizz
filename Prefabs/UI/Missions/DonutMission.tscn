@@ -7,5 +7,4 @@
 script = ExtResource("2_7vrmm")
 
 [node name="Label" parent="." index="1"]
-text = "Pick up donuts from the donut shop!
-"
+text = "Eat some donuts from the donut shop!"

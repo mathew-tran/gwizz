@@ -5,11 +5,13 @@ extends Control
 @onready var MissionPrefab = preload("res://Prefabs/UI/MissionObjective.tscn")
 
 var MissionList = [
-	"res://Prefabs/UI/Missions/TalkToPolicemanMission.tscn",
 	"res://Prefabs/UI/Missions/Control1Mission.tscn",
 	"res://Prefabs/UI/Missions/Control2Mission.tscn",
+	"res://Prefabs/UI/Missions/TalkToPolicemanMission.tscn",
 	"res://Prefabs/UI/Missions/DonutMission.tscn",
-	"res://Prefabs/UI/Missions/DrunkManMission.tscn"
+	"res://Prefabs/UI/Missions/PizzaMission.tscn",
+	"res://Prefabs/UI/Missions/CakeMission.tscn",
+	"res://Prefabs/UI/Missions/KibbleMission.tscn"
 	]
 
 var MissionIndex = 0
@@ -23,7 +25,7 @@ func StartGame():
 	StartMission()
 
 func StartMission():
-	if MissionIndex < len(MissionList) - 1:
+	if MissionIndex < len(MissionList):
 		var instance = load(MissionList[MissionIndex]).instantiate()
 		Missions.add_child(instance)
 		instance.CompletedObjective.connect(OnMissionComplete.bind())

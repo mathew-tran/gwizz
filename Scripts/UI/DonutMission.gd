@@ -10,6 +10,18 @@ func StartTracking():
 	Helper.SendDialogue(string)
 	EventManager.DonutInteract.connect(OnDonutInteract)
 
+	var donutShop = Finder.GetInteractWithTag("DonutMission")
+	if donutShop:
+		var newContent = "You eat some donuts!\n"
+		newContent += "Tasty! Now on to the next in the list.."
+		donutShop.Content = newContent
+
+
+
 func OnDonutInteract():
 	CompleteObjective()
+	var donutShop = Finder.GetInteractWithTag("DonutMission")
+	if donutShop:
+		donutShop.queue_free()
+
 

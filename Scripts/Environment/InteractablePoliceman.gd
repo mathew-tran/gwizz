@@ -30,7 +30,7 @@ func OnFinishedTalking():
 	Finder.GetDialogue().DialogueComplete.disconnect(OnFinishedTalking)
 	MissionRef.Execute()
 	MissionRef = null
-	CurrentContent = "Move along"
+	CurrentContent = Content
 
 
 func GetInteractType():

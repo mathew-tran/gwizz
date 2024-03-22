@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm3011j3pl8t3"]
+
+[ext_resource type="PackedScene" uid="uid://dgpxr7mxt8roe" path="res://Prefabs/UI/MissionObjective.tscn" id="1_ahltj"]
+[ext_resource type="Script" path="res://Scripts/UI/KibbleMission.gd" id="2_vva6d"]
+
+[node name="MissionObjective" instance=ExtResource("1_ahltj")]
+script = ExtResource("2_vva6d")
+
+[node name="Label" parent="." index="1"]
+text = "Get dog kibble from the Pet Shop!"

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://drw8nb7yh4dge"]
+
+[ext_resource type="PackedScene" uid="uid://dgpxr7mxt8roe" path="res://Prefabs/UI/MissionObjective.tscn" id="1_vyxdi"]
+[ext_resource type="Script" path="res://Scripts/UI/PizzaMission.gd" id="2_i1vje"]
+
+[node name="MissionObjective" instance=ExtResource("1_vyxdi")]
+script = ExtResource("2_i1vje")
+
+[node name="Label" parent="." index="1"]
+text = "Collect the Pizza from the Pizzaria!"

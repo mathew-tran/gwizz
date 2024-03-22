@@ -6,18 +6,15 @@ func StartTracking():
 	bIsTracking = true
 	var policeman = get_tree().get_nodes_in_group("Policeman1")
 	if policeman:
-		var string = "'Greg.Before you start your deliveries today. I bought some donuts for you at the donut shop!'\n"
+		var string = "'Greg.Before you start for Gwizz's big today. I bought some donuts for you at the donut shop!'\n"
 		string += "'It's on the east side'\n"
 		string += "'See you later!'\n"
 		string += "'Gwizz says hi!'\n"
 		string += "'BARK BARK'\n"
 		string += "....\n"
-		string += "You work as a delivery driver\n"
-		string += "You make ends meet by doing deliveries.\n"
-		string += ".. Hopefully today will not be so eventful \n"
-		string += "Gwizz (your dog) often gets into trouble."
-
-
+		string += "Today is your dogs birthday\n"
+		string += "You need to go out and get supplies so the birthday can happen\n"
+		string += "Don't be late!"
 		policeman[0].OverridePoliceman(string, self)
 
 

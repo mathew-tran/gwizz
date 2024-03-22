@@ -7,4 +7,5 @@
 script = ExtResource("2_kk78b")
 
 [node name="Label" parent="." index="1"]
-text = "Mouse Click on the Police Officer"
+text = "Mouse Click on the Police Officer.
+"
