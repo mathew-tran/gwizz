@@ -16,6 +16,8 @@ var ChaseSprite = preload("res://Art/frogdemon.png")
 
 func _ready():
 	PlayerRef = Finder.GetPlayer()
+	$StartTimer.wait_time = randf_range(0, 5)
+	$StartTimer.start()
 
 
 func StartChasing():
@@ -76,3 +78,10 @@ func _on_hit_timer_timeout():
 func _on_dist_check_timer_timeout():
 	if PlayerRef.global_position.distance_to(global_position) < 400:
 		StartChasing()
+		$DistCheckTimer.stop()
+	else:
+		$Sprite.scale.x = -$Sprite.scale.x
+
+
+func _on_start_timer_timeout():
+	$DistCheckTimer.start()
