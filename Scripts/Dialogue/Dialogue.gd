@@ -7,6 +7,8 @@ var Data = []
 
 signal DialogueComplete
 
+var bCanSkip = true
+
 func _ready():
 	add_to_group("DIALOGUE")
 
@@ -34,7 +36,9 @@ func ShowText(data):
 	$Panel/Label.text =""
 	$Panel/Label.visible_ratio= 0
 	$AnimationPlayer.play("animIn")
+	bCanSkip = false
 	await $AnimationPlayer.animation_finished
+	bCanSkip = true
 	get_tree().paused = true
 	Index = 0
 	Data = SplitString(data["content"])
@@ -59,12 +63,16 @@ func Close():
 	emit_signal("DialogueComplete")
 
 func PaginateForward():
+	if bCanSkip == false:
+		return
 	Index += 1
 	if Index >= LastIndex:
 		Close()
 		Data = null
 	else:
+		bCanSkip = false
 		$AnimationPlayer.play("animText")
+		bCanSkip = true
 		$Panel/Label.text = Data[Index]
 		UpdatePromptText()
 
