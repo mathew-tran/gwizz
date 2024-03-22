@@ -63,6 +63,7 @@ func _on_area_2d_body_entered(body):
 			$Sprite.texture = DeadSprite
 			$HitTimer.stop()
 			bIsDead = true
+			GameTimer.FrogsKilled += 1
 		else:
 			$HitTimer.start()
 			$Sprite.texture = HitSprite

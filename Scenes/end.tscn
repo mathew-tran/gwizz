@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://5weebkduv6h7"]
+[gd_scene load_steps=15 format=3 uid="uid://5weebkduv6h7"]
 
 [ext_resource type="TileSet" uid="uid://32lc8wffybep" path="res://Tileset/GroundTileset.tres" id="1_5eith"]
 [ext_resource type="FontFile" uid="uid://cln4puo47lfvm" path="res://Font/PressStart2P-Regular.ttf" id="2_3ftjg"]
 [ext_resource type="PackedScene" uid="uid://bkn3yewwgd3qg" path="res://Prefabs/Gwizz.tscn" id="3_5fi1x"]
 [ext_resource type="Script" path="res://Scripts/UI/TimeRecord.gd" id="3_h1g8g"]
+[ext_resource type="Script" path="res://Scripts/UI/StatsLabel.gd" id="4_2xwx2"]
 [ext_resource type="Texture2D" uid="uid://bjnquagucmfbl" path="res://Art/PartyHat.png" id="4_ny0s8"]
 [ext_resource type="Script" path="res://Scripts/UI/IsRecordLabel.gd" id="4_tfcnh"]
 [ext_resource type="Texture2D" uid="uid://djs2687nap7wv" path="res://Art/Pizza.png" id="5_gd6sv"]
@@ -77,6 +78,26 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_3ftjg")
 text = "1 minute. 32 seconds."
 script = ExtResource("3_h1g8g")
+
+[node name="StatsLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -236.0
+offset_right = 425.0
+offset_bottom = -187.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_3ftjg")
+theme_override_font_sizes/font_size = 11
+text = "Stats
+0 frogs killed
+1.21m travelled"
+horizontal_alignment = 2
+script = ExtResource("4_2xwx2")
 
 [node name="IsRecordLabel" type="Label" parent="."]
 modulate = Color(0.545098, 0.898039, 1, 1)
