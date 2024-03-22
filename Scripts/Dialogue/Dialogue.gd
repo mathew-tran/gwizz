@@ -46,9 +46,9 @@ func ShowText(data):
 
 func UpdatePromptText():
 	if Index < LastIndex - 1:
-		$"Panel/Prompt Text".text = "(Left Click to continue)"
+		$"Panel/Prompt Text".text = "(Left Click / Space to continue)"
 	else:
-		$"Panel/Prompt Text".text = "(Left Click to end)"
+		$"Panel/Prompt Text".text = "(Left Click  / Space to end)"
 
 func Close():
 	$AnimationPlayer.play_backwards("animIn")
@@ -70,5 +70,5 @@ func PaginateForward():
 
 func _input(event):
 	if Data:
-		if event.is_action_pressed("click"):
+		if event.is_action_pressed("click") or event.is_action_pressed("space"):
 			PaginateForward()
