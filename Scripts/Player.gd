@@ -29,6 +29,12 @@ func _process(delta):
 		if coll:
 			$CollideParticle.global_position =coll.get_position()
 			$CollideParticle.emitting = true
+
+func Bump(pos):
+	velocity *= .5
+	$CollideParticle.global_position = pos
+	$CollideParticle.emitting = true
+
 func _physics_process(delta):
 	Acceleration = Vector2.ZERO
 	GetInput()

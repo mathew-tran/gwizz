@@ -49,6 +49,7 @@ func _on_area_2d_body_entered(body):
 		bStartChasingAfterDog = false
 
 		$HitParticle.emitting = true
+		body.Bump(global_position)
 		if bCanStartChasing:
 			Hits -= 3
 		else:
