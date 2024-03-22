@@ -48,9 +48,12 @@ func _on_area_2d_body_entered(body):
 	if body.name == "Player":
 		bStartChasingAfterDog = false
 
+		$HitParticle.emitting = true
 		if bCanStartChasing:
-			Hits -= 2
-		Hits -= 1
+			Hits -= 3
+		else:
+			Hits -= 1
+
 
 		if Hits <= 0:
 			print("dead")

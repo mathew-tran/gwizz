@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cawd5fvgrisk8"]
+[gd_scene load_steps=5 format=3 uid="uid://cawd5fvgrisk8"]
 
 [ext_resource type="Texture2D" uid="uid://cs1w8mp45l2c3" path="res://Art/frogdemon.png" id="1_rvrbt"]
 [ext_resource type="Script" path="res://Scripts/FrogDemon.gd" id="2_11oy1"]
+[ext_resource type="Texture2D" uid="uid://c87o1np1thpbr" path="res://Art/HitParticle.png" id="3_vem2y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31t1c"]
 size = Vector2(10, 25)
@@ -29,6 +30,18 @@ one_shot = true
 [node name="DistCheckTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
+
+[node name="HitParticle" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 12
+lifetime = 5.0
+one_shot = true
+speed_scale = 10.0
+texture = ExtResource("3_vem2y")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
 
 [connection signal="body_entered" from="Sprite/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
