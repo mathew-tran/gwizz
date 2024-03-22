@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://ck7tu23ne7fsa"]
+[gd_scene load_steps=54 format=3 uid="uid://ck7tu23ne7fsa"]
 
 [ext_resource type="TileSet" uid="uid://32lc8wffybep" path="res://Tileset/GroundTileset.tres" id="1_8uoc4"]
 [ext_resource type="PackedScene" uid="uid://1nfw2wq1lcai" path="res://Prefabs/Player.tscn" id="2_nbqxh"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://b2qs374dn5nh6" path="res://Prefabs/Environment/CakeShopInteractable.tscn" id="24_tx72m"]
 [ext_resource type="PackedScene" uid="uid://maiqkqvocsom" path="res://Prefabs/Environment/KibbleShopInteractable.tscn" id="32_c0f6n"]
 [ext_resource type="PackedScene" uid="uid://d10t2l48ox7cf" path="res://Prefabs/Environment/AlcoholShopInteractable.tscn" id="33_c7fb3"]
+[ext_resource type="PackedScene" uid="uid://cawd5fvgrisk8" path="res://Prefabs/FrogDemon.tscn" id="33_qjefh"]
 [ext_resource type="PackedScene" uid="uid://coi1xfuwagxqv" path="res://Prefabs/Environment/PartyShopInteractable.tscn" id="34_gbqou"]
 [ext_resource type="PackedScene" uid="uid://m8vu52c7ajmw" path="res://Prefabs/Environment/HomeInteractable.tscn" id="35_t8yte"]
 
@@ -463,3 +464,18 @@ position = Vector2(-1808, 2672)
 
 [node name="Area2D4" parent="." instance=ExtResource("35_t8yte")]
 position = Vector2(-4832, 2896)
+
+[node name="FrogDemon" parent="." instance=ExtResource("33_qjefh")]
+position = Vector2(-3024, 2960)
+
+[node name="FrogDemon2" parent="." instance=ExtResource("33_qjefh")]
+position = Vector2(-1400, 2448)
+
+[node name="FrogDemon3" parent="." instance=ExtResource("33_qjefh")]
+position = Vector2(992, 3216)
+
+[node name="FrogDemon4" parent="." instance=ExtResource("33_qjefh")]
+position = Vector2(1008, 2328)
+
+[node name="FrogDemon5" parent="." instance=ExtResource("33_qjefh")]
+position = Vector2(-2808, 744)

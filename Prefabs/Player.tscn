@@ -16,7 +16,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.903846, 1, 1, 1, 0)
 [sub_resource type="Gradient" id="Gradient_us3iv"]
 colors = PackedColorArray(0.376471, 0.560784, 0.811765, 1, 0.545098, 0.898039, 1, 1)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 5
 script = ExtResource("1_iyi34")
 
