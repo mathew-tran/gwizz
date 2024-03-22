@@ -1,27 +1,23 @@
 extends Node
 
-var SecondTimer = null
+var bCanRecord = false
 
 var Value = 0
 
 var OldRecord = 999999
 func _ready():
-	SecondTimer = Timer.new()
-	add_child(SecondTimer)
-	SecondTimer.wait_time = .01
-	SecondTimer.one_shot = false
-	SecondTimer.timeout.connect(OnTimerTimeout)
+	bCanRecord = false
 
-func OnTimerTimeout():
-	Value += SecondTimer.wait_time
+func _process(delta):
+	Value += delta
 
 func Start():
 	Value = 0.0
-	SecondTimer.start()
+	bCanRecord = true
 
 
 func Stop():
-	SecondTimer.stop()
+	bCanRecord = false
 
 func EstablishRecord():
 	if Value < OldRecord:

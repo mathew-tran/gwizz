@@ -5,6 +5,7 @@ extends Control
 @onready var MissionPrefab = preload("res://Prefabs/UI/MissionObjective.tscn")
 
 var MissionList = [
+		"res://Prefabs/UI/Missions/HomeMission.tscn",
 	"res://Prefabs/UI/Missions/Control1Mission.tscn",
 	"res://Prefabs/UI/Missions/TalkToPolicemanMission.tscn",
 	"res://Prefabs/UI/Missions/DonutMission.tscn",
@@ -13,7 +14,7 @@ var MissionList = [
 	"res://Prefabs/UI/Missions/KibbleMission.tscn",
 	"res://Prefabs/UI/Missions/PizzaMission.tscn",
 	"res://Prefabs/UI/Missions/CakeMission.tscn",
-	"res://Prefabs/UI/Missions/HomeMission.tscn",
+
 	]
 
 var MissionIndex = 0
