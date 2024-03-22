@@ -23,6 +23,12 @@ var TractionBreak = 0.6
 var bIsBraking = false
 var bStop = false
 
+func _process(delta):
+	if velocity != Vector2.ZERO:
+		var coll = get_last_slide_collision()
+		if coll:
+			$CollideParticle.global_position =coll.get_position()
+			$CollideParticle.emitting = true
 func _physics_process(delta):
 	Acceleration = Vector2.ZERO
 	GetInput()

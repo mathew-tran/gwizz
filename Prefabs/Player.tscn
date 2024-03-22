@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://1nfw2wq1lcai"]
+[gd_scene load_steps=9 format=3 uid="uid://1nfw2wq1lcai"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_iyi34"]
 [ext_resource type="Texture2D" uid="uid://26pjyxdu1gx3" path="res://Art/Car.png" id="1_vwpdu"]
 [ext_resource type="Texture2D" uid="uid://bk7gt7o7573h4" path="res://Art/WhitePixel.png" id="3_r4c1d"]
 [ext_resource type="Script" path="res://Scripts/FX/LineTrail.gd" id="4_ovlyj"]
+[ext_resource type="Texture2D" uid="uid://c87o1np1thpbr" path="res://Art/HitParticle.png" id="5_3rkl8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qw0p4"]
 radius = 12.9988
@@ -98,5 +99,17 @@ position = Vector2(-21, 9)
 [node name="MoveCheckTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
+
+[node name="CollideParticle" type="CPUParticles2D" parent="."]
+emitting = false
+lifetime = 0.1
+one_shot = true
+texture = ExtResource("5_3rkl8")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+scale_amount_min = 0.5
+scale_amount_max = 1.2
 
 [connection signal="timeout" from="MoveCheckTimer" to="." method="_on_move_check_timer_timeout"]
