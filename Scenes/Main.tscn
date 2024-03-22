@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://ck7tu23ne7fsa"]
+[gd_scene load_steps=55 format=3 uid="uid://ck7tu23ne7fsa"]
 
 [ext_resource type="TileSet" uid="uid://32lc8wffybep" path="res://Tileset/GroundTileset.tres" id="1_8uoc4"]
 [ext_resource type="PackedScene" uid="uid://1nfw2wq1lcai" path="res://Prefabs/Player.tscn" id="2_nbqxh"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://bu5pxhnuw8rrx" path="res://Prefabs/Environment/DonutShopInteractable.tscn" id="19_08ann"]
 [ext_resource type="PackedScene" uid="uid://myqxpvpvppx5" path="res://Prefabs/Environment/PizzaShopInteractable.tscn" id="22_lyi0d"]
 [ext_resource type="PackedScene" uid="uid://b2qs374dn5nh6" path="res://Prefabs/Environment/CakeShopInteractable.tscn" id="24_tx72m"]
+[ext_resource type="PackedScene" uid="uid://fhkxrv3bb62" path="res://Prefabs/UI/Gwizzdar.tscn" id="29_jkcwg"]
 [ext_resource type="PackedScene" uid="uid://maiqkqvocsom" path="res://Prefabs/Environment/KibbleShopInteractable.tscn" id="32_c0f6n"]
 [ext_resource type="PackedScene" uid="uid://d10t2l48ox7cf" path="res://Prefabs/Environment/AlcoholShopInteractable.tscn" id="33_c7fb3"]
 [ext_resource type="PackedScene" uid="uid://cawd5fvgrisk8" path="res://Prefabs/FrogDemon.tscn" id="33_qjefh"]
@@ -450,6 +451,19 @@ position = Vector2(-5024, 2984)
 [node name="Dialogue" parent="CanvasLayer" instance=ExtResource("5_aullg")]
 
 [node name="Mission" parent="CanvasLayer" instance=ExtResource("7_csf2y")]
+
+[node name="Gwizzdar" parent="CanvasLayer" instance=ExtResource("29_jkcwg")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = -40.0
+offset_right = 512.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 

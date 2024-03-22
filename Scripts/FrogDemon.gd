@@ -19,7 +19,7 @@ func _ready():
 
 
 func StartChasing():
-	if bCanStartChasing ==false:
+	if bCanStartChasing ==false or bIsDead:
 		return
 	Helper.SendDialogue("A frog demon has taken notice of Gwizz!\n Run the demon over to protect him from Gwizz!")
 	bStartChasingAfterDog = true
@@ -31,9 +31,15 @@ func StartChasing():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if bIsDead:
+		return
 	if bStartChasingAfterDog:
 		global_position = global_position.move_toward(EndPosition, delta * Speed)
 
+func IsChasing():
+	if bIsDead:
+		return false
+	return bCanStartChasing == false
 
 func _on_area_2d_body_entered(body):
 	if bIsDead:
