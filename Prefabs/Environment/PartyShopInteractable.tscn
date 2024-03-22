@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://maiqkqvocsom"]
+[gd_scene load_steps=3 format=3 uid="uid://coi1xfuwagxqv"]
 
-[ext_resource type="Script" path="res://Scripts/Environment/Interactable.gd" id="1_3dgx1"]
+[ext_resource type="Script" path="res://Scripts/Environment/Interactable.gd" id="1_m5dkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o80p6"]
 size = Vector2(32, 32)
@@ -8,11 +8,12 @@ size = Vector2(32, 32)
 [node name="Area2D" type="Area2D"]
 collision_layer = 8
 collision_mask = 0
-script = ExtResource("1_3dgx1")
+script = ExtResource("1_m5dkg")
 InteractType = 1
-EventType = 4
-Content = "This is a pet Shop."
-GroupTag = "KibbleMission"
+EventType = 5
+Content = "It's a Party Shop.
+"
+GroupTag = "PartyMission"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_o80p6")

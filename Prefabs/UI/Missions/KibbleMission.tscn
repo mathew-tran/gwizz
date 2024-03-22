@@ -7,4 +7,4 @@
 script = ExtResource("2_vva6d")
 
 [node name="Label" parent="." index="1"]
-text = "Get dog kibble from the Pet Shop!"
+text = "Collect some kibble from the Pet Shop"

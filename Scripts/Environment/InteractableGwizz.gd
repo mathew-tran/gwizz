@@ -4,9 +4,10 @@ extends Area2D
 @export_multiline var Content
 var CurrentContent
 
+@export var AnimToPlay = "RESET"
 func _ready():
 	CurrentContent = Content
-	Animate("shake")
+	Animate(AnimToPlay)
 
 
 func Animate(animName):

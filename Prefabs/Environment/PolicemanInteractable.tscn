@@ -12,6 +12,7 @@ collision_mask = 0
 script = ExtResource("1_2m2gp")
 InteractType = 2
 Content = "Excited for Gwizz's big day?"
+GroupTag = "Policeman1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_o80p6")

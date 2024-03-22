@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://gbvs6kfovxse"]
+
+[ext_resource type="PackedScene" uid="uid://dgpxr7mxt8roe" path="res://Prefabs/UI/MissionObjective.tscn" id="1_snewa"]
+[ext_resource type="Script" path="res://Scripts/UI/HomeMission.gd" id="2_4vesp"]
+
+[node name="MissionObjective" instance=ExtResource("1_snewa")]
+script = ExtResource("2_4vesp")
+
+[node name="Label" parent="." index="1"]
+text = "Go home and setup the party!"

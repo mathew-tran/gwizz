@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvv5fyo7nqmor"]
+
+[ext_resource type="PackedScene" uid="uid://dgpxr7mxt8roe" path="res://Prefabs/UI/MissionObjective.tscn" id="1_cyn8r"]
+[ext_resource type="Script" path="res://Scripts/UI/AlcoholMission.gd" id="2_xopun"]
+
+[node name="MissionObjective" instance=ExtResource("1_cyn8r")]
+script = ExtResource("2_xopun")
+
+[node name="Label" parent="." index="1"]
+text = "Collect the drinks from the Liquor store!"
