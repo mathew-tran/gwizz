@@ -7,6 +7,12 @@ func GetDialogue():
 		return result[0]
 	return null
 
+func GetBloodStains():
+	var stains = get_tree().get_nodes_in_group("BloodStains")
+	if stains:
+		return stains[0]
+	return null
+
 func GetPlayer():
 	var result = get_tree().get_nodes_in_group("Player")
 	if result:

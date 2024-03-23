@@ -52,6 +52,9 @@ func _on_area_2d_body_entered(body):
 
 		$HitParticle.emitting = true
 		body.Bump(global_position)
+		var instance = load("res://Prefabs/Environment/Bloodstain.tscn").instantiate()
+		instance.global_position= global_position
+		Finder.GetBloodStains().add_child(instance)
 		if bCanStartChasing:
 			Hits -= 3
 		else:

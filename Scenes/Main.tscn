@@ -417,6 +417,8 @@ layer_0/tile_data = PackedInt32Array(786584, 0, 0, 852120, 0, 1, 917656, 0, 2, 9
 
 [node name="EnvironmentPieces" type="Node2D" parent="."]
 
+[node name="BloodStains" type="Node2D" parent="EnvironmentPieces" groups=["BloodStains"]]
+
 [node name="Gate" parent="EnvironmentPieces" groups=["TutorialGate"] instance=ExtResource("4_sd1lh")]
 position = Vector2(-4528, 2928)
 
