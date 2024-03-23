@@ -23,6 +23,8 @@ var TractionBreak = 0.6
 var bIsBraking = false
 var bStop = false
 
+func _ready():
+	$TailLights.visible = false
 func _process(delta):
 	if velocity != Vector2.ZERO:
 		var coll = get_last_slide_collision()
@@ -47,6 +49,10 @@ func _physics_process(delta):
 	velocity += Acceleration * delta
 	move_and_slide()
 
+func EmitSmokeTrail():
+	$GPUParticles2D.emitting = true
+	$GPUParticles2D2.emitting = true
+
 func GetInput():
 	var turn = 0
 	if Input.is_action_pressed("steer_left"):
@@ -58,15 +64,21 @@ func GetInput():
 
 	if Input.is_action_pressed("accelerate"):
 		Acceleration = transform.x * EnginePower
-
-	if Input.is_action_pressed("decelerate"):
+		$TailLights.visible = false
+		EmitSmokeTrail()
+	elif Input.is_action_pressed("decelerate"):
 		Acceleration = transform.x * Braking
-
-	if Input.is_action_pressed("brake"):
+		$TailLights.visible = true
+	elif Input.is_action_pressed("brake"):
 		Acceleration = transform.x * HardBrake
 		bIsBraking = true
+		$TailLights.visible = true
 	else:
 		bIsBraking = false
+		$TailLights.visible = false
+
+	print($TailLights.visible)
+
 
 func ApplyFriction():
 	if velocity.length() < 5:

@@ -443,7 +443,7 @@ position = Vector2(2608, 336)
 position = Vector2(-192, 3088)
 
 [node name="Gwizz" parent="." instance=ExtResource("19_2sp0l")]
-position = Vector2(-4360, 2896)
+position = Vector2(-4488, 3000)
 
 [node name="FrogDemon" parent="." instance=ExtResource("33_qjefh")]
 position = Vector2(-3024, 2960)
