@@ -66,10 +66,11 @@ func GetInput():
 		Acceleration = transform.x * EnginePower
 		$TailLights.visible = false
 		EmitSmokeTrail()
-	elif Input.is_action_pressed("decelerate"):
+	if Input.is_action_pressed("decelerate"):
 		Acceleration = transform.x * Braking
 		$TailLights.visible = true
-	elif Input.is_action_pressed("brake"):
+
+	if Input.is_action_pressed("brake"):
 		Acceleration = transform.x * HardBrake
 		bIsBraking = true
 		$TailLights.visible = true
@@ -111,7 +112,7 @@ func CalculateSteering(delta):
 	if dotProduct < 0:
 		velocity = -newHeading * min(velocity.length(), MaxSpeedReverse)
 	if bIsBraking:
-		if dotProduct == 0:
+		if dotProduct <= 0:
 			if velocity.length() >= 0:
 				bStop = true
 				velocity = Vector2.ZERO
