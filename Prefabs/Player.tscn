@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://1nfw2wq1lcai"]
+[gd_scene load_steps=10 format=3 uid="uid://1nfw2wq1lcai"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_iyi34"]
 [ext_resource type="Texture2D" uid="uid://26pjyxdu1gx3" path="res://Art/Car.png" id="1_vwpdu"]
 [ext_resource type="Texture2D" uid="uid://bk7gt7o7573h4" path="res://Art/WhitePixel.png" id="3_r4c1d"]
+[ext_resource type="Texture2D" uid="uid://rdsbc4vrf50n" path="res://Art/smoke.png" id="4_dn5hl"]
 [ext_resource type="Script" path="res://Scripts/FX/LineTrail.gd" id="4_ovlyj"]
 [ext_resource type="Texture2D" uid="uid://c87o1np1thpbr" path="res://Art/HitParticle.png" id="5_3rkl8"]
 
@@ -72,6 +73,40 @@ initial_velocity_min = 1.0
 initial_velocity_max = 2.0
 scale_amount_min = 0.4
 scale_amount_max = 0.5
+color_ramp = SubResource("Gradient_xtg8e")
+
+[node name="WheelieParticle" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+z_index = 1
+position = Vector2(-21, -11)
+emitting = false
+amount = 20
+one_shot = true
+speed_scale = 20.0
+texture = ExtResource("4_dn5hl")
+emission_shape = 3
+emission_rect_extents = Vector2(3, 3)
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, -30)
+scale_amount_min = 0.1
+color_ramp = SubResource("Gradient_xtg8e")
+
+[node name="WheelieParticle2" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+z_index = 1
+position = Vector2(-21, 11)
+emitting = false
+amount = 20
+one_shot = true
+speed_scale = 20.0
+texture = ExtResource("4_dn5hl")
+emission_shape = 3
+emission_rect_extents = Vector2(3, 3)
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, -30)
+scale_amount_min = 0.1
 color_ramp = SubResource("Gradient_xtg8e")
 
 [node name="Line2D" type="Line2D" parent="."]

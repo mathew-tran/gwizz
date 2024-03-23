@@ -20,6 +20,9 @@ var TractionFast = 0.1
 var TractionSlow = 0.5
 var TractionBreak = 0.6
 
+var BuildUpPower = 0
+var MaxBuildUpPower = 100
+
 var bIsBraking = false
 var bStop = false
 
@@ -39,7 +42,7 @@ func Bump(pos):
 
 func _physics_process(delta):
 	Acceleration = Vector2.ZERO
-	GetInput()
+	GetInput(delta)
 	ApplyFriction()
 	CalculateSteering(delta)
 
@@ -53,7 +56,15 @@ func EmitSmokeTrail():
 	$GPUParticles2D.emitting = true
 	$GPUParticles2D2.emitting = true
 
-func GetInput():
+func EmitWheelieTrail(amount):
+	if $WheelieParticle.emitting == true:
+		return
+	$WheelieParticle.scale_amount_max = amount
+	$WheelieParticle2.scale_amount_max = amount
+	$WheelieParticle.emitting = true
+	$WheelieParticle2.emitting = true
+
+func GetInput(delta):
 	var turn = 0
 	if Input.is_action_pressed("steer_left"):
 		turn -= 1
@@ -62,10 +73,13 @@ func GetInput():
 
 	SteerDirection = turn * deg_to_rad(SteeringAngle)
 
+	var bIsAccelerating = false
+
 	if Input.is_action_pressed("accelerate"):
 		Acceleration = transform.x * EnginePower
 		$TailLights.visible = false
 		EmitSmokeTrail()
+		bIsAccelerating = true
 	if Input.is_action_pressed("decelerate"):
 		Acceleration = transform.x * Braking
 		$TailLights.visible = true
@@ -76,9 +90,25 @@ func GetInput():
 		$TailLights.visible = true
 	else:
 		bIsBraking = false
+
+	if Acceleration == Vector2.ZERO:
 		$TailLights.visible = false
 
-	print($TailLights.visible)
+	if bIsBraking and bIsAccelerating:
+
+		BuildUpPower += delta * 50
+		if BuildUpPower >= MaxBuildUpPower:
+			BuildUpPower = MaxBuildUpPower
+
+		var weight = BuildUpPower / MaxBuildUpPower
+		var newScale = lerpf(.1, 1.2, weight)
+		EmitWheelieTrail(newScale)
+		rotation_degrees += delta * turn * 120
+	elif bIsAccelerating and BuildUpPower > 0:
+		Acceleration *= BuildUpPower
+		BuildUpPower = 0
+	else:
+		BuildUpPower = 0
 
 
 func ApplyFriction():
@@ -89,13 +119,17 @@ func ApplyFriction():
 	var dragForce = velocity * velocity.length() * Drag
 	Acceleration += dragForce + frictionForce
 
-func CalculateSteering(delta):
+func GetNewHeading(delta):
 	var rearWheel = position - transform.x * (WheelDistance / 2)
 	var frontWheel = position + transform.x * (WheelDistance / 2)
 	rearWheel += velocity * delta
 	frontWheel += velocity.rotated(SteerDirection) * delta
 
 	var newHeading = (frontWheel - rearWheel).normalized()
+	return newHeading
+
+func CalculateSteering(delta):
+	var newHeading = GetNewHeading(delta)
 
 	var traction = TractionSlow
 
