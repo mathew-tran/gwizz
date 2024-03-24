@@ -1,11 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://cawd5fvgrisk8"]
+[gd_scene load_steps=9 format=3 uid="uid://cawd5fvgrisk8"]
 
 [ext_resource type="Texture2D" uid="uid://cs1w8mp45l2c3" path="res://Art/frogdemon.png" id="1_rvrbt"]
 [ext_resource type="Script" path="res://Scripts/FrogDemon.gd" id="2_11oy1"]
 [ext_resource type="Texture2D" uid="uid://c87o1np1thpbr" path="res://Art/HitParticle.png" id="3_vem2y"]
+[ext_resource type="Texture2D" uid="uid://def80ay1lxh61" path="res://Art/FrogTarget.png" id="4_3yrsi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31t1c"]
 size = Vector2(10, 25)
+
+[sub_resource type="Animation" id="Animation_7dxdc"]
+resource_name = "startChasingTarget"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, true, false, true, false, true, false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_7mnyp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7g05p"]
+_data = {
+"RESET": SubResource("Animation_7mnyp"),
+"startChasingTarget": SubResource("Animation_7dxdc")
+}
 
 [node name="FrogDemon" type="Node2D" groups=["Demon"]]
 script = ExtResource("2_11oy1")
@@ -44,6 +82,15 @@ initial_velocity_max = 20.0
 
 [node name="StartTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="FrogTarget" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_3yrsi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FrogTarget"]
+libraries = {
+"": SubResource("AnimationLibrary_7g05p")
+}
 
 [connection signal="body_entered" from="Sprite/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]

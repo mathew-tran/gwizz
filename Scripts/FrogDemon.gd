@@ -26,6 +26,7 @@ func StartChasing():
 	if GameTimer.bFirstTimeChase == false:
 		Helper.SendDialogue("A frog demon has taken notice of Gwizz!\n Run the demon over to protect him from Gwizz!")
 		GameTimer.bFirstTimeChase = true
+	$FrogTarget/AnimationPlayer.play("startChasingTarget")
 	bStartChasingAfterDog = true
 	GwizzRef = Finder.GetGwizz()
 	EndPosition = GwizzRef.global_position

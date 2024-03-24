@@ -6,5 +6,11 @@
 [node name="MissionObjective" instance=ExtResource("1_snewa")]
 script = ExtResource("2_4vesp")
 
+[node name="CheckBox" parent="." index="0"]
+visible = false
+
 [node name="Label" parent="." index="1"]
+visible = false
 text = "Go home and setup the party!"
+visible_characters = 0
+visible_ratio = 0.0

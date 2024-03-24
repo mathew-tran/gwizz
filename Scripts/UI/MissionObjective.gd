@@ -3,6 +3,8 @@ class_name MissionObjective
 
 signal CompletedObjective
 
+func _ready():
+	$AnimationPlayer.play("animIn")
 
 func StartTracking():
 	pass
