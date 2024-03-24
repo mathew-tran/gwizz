@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxgcc1hrej6l"]
+[gd_scene load_steps=11 format=3 uid="uid://bxgcc1hrej6l"]
 
 [ext_resource type="TileSet" uid="uid://32lc8wffybep" path="res://Tileset/GroundTileset.tres" id="1_baops"]
 [ext_resource type="FontFile" uid="uid://cln4puo47lfvm" path="res://Font/PressStart2P-Regular.ttf" id="2_y06y6"]
 [ext_resource type="PackedScene" uid="uid://bkn3yewwgd3qg" path="res://Prefabs/Gwizz.tscn" id="3_kte2s"]
 [ext_resource type="Script" path="res://Scripts/UI/StartButton.gd" id="3_nfj0l"]
 [ext_resource type="Texture2D" uid="uid://by774m4t6utwb" path="res://Art/Kibble.png" id="4_f2yco"]
+[ext_resource type="Script" path="res://Scripts/CarSteerCodeButton.gd" id="4_grnxf"]
 
 [sub_resource type="Theme" id="Theme_m47qq"]
 default_font = ExtResource("2_y06y6")
@@ -71,24 +72,33 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="Button2" type="Button" parent="."]
+offset_left = -429.0
+offset_top = 211.0
+offset_right = -48.0
+offset_bottom = 237.0
+script = ExtResource("4_grnxf")
+
 [node name="Time2" type="Label" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -599.0
-offset_top = 169.0
-offset_right = 601.0
-offset_bottom = 265.0
+offset_left = -426.0
+offset_top = 131.0
+offset_right = 774.0
+offset_bottom = 227.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_tggk6")
+theme_override_constants/line_spacing = 8
 theme_override_fonts/font = ExtResource("2_y06y6")
 text = "Created for Gwizz Jam.
 
-Created by Mathew Tran."
-horizontal_alignment = 1
+Credits:
+Created by Mathew Tran.
+Initial Car Steering Code - KidsCanCode"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -106,5 +116,6 @@ position = Vector2(18, 2)
 texture = ExtResource("4_f2yco")
 
 [connection signal="button_up" from="Button" to="Button" method="_on_button_up"]
+[connection signal="button_up" from="Button2" to="Button2" method="_on_button_up"]
 
 [editable path="Area2D"]
