@@ -454,8 +454,32 @@ position = Vector2(-1400, 2448)
 [node name="FrogDemon3" parent="." instance=ExtResource("33_qjefh")]
 position = Vector2(992, 3216)
 
+[node name="FrogDemon9" parent="." instance=ExtResource("33_qjefh")]
+position = Vector2(1104, 3152)
+
+[node name="FrogDemon10" parent="." instance=ExtResource("33_qjefh")]
+position = Vector2(-24, 2896)
+
+[node name="FrogDemon11" parent="." instance=ExtResource("33_qjefh")]
+position = Vector2(984, 2344)
+
+[node name="FrogDemon12" parent="." instance=ExtResource("33_qjefh")]
+position = Vector2(-48, 2896)
+
+[node name="FrogDemon13" parent="." instance=ExtResource("33_qjefh")]
+position = Vector2(1912, 2088)
+
 [node name="FrogDemon4" parent="." instance=ExtResource("33_qjefh")]
 position = Vector2(1008, 2328)
+
+[node name="FrogDemon6" parent="." instance=ExtResource("33_qjefh")]
+position = Vector2(128, 1432)
+
+[node name="FrogDemon7" parent="." instance=ExtResource("33_qjefh")]
+position = Vector2(-2744, 744)
+
+[node name="FrogDemon8" parent="." instance=ExtResource("33_qjefh")]
+position = Vector2(-2848, 744)
 
 [node name="FrogDemon5" parent="." instance=ExtResource("33_qjefh")]
 position = Vector2(-2808, 744)

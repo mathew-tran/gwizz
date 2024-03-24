@@ -23,7 +23,9 @@ func _ready():
 func StartChasing():
 	if bCanStartChasing ==false or bIsDead:
 		return
-	Helper.SendDialogue("A frog demon has taken notice of Gwizz!\n Run the demon over to protect him from Gwizz!")
+	if GameTimer.bFirstTimeChase == false:
+		Helper.SendDialogue("A frog demon has taken notice of Gwizz!\n Run the demon over to protect him from Gwizz!")
+		GameTimer.bFirstTimeChase = true
 	bStartChasingAfterDog = true
 	GwizzRef = Finder.GetGwizz()
 	EndPosition = GwizzRef.global_position
@@ -48,12 +50,14 @@ func _on_area_2d_body_entered(body):
 		return
 
 	if body.name == "Player":
+		if body.IsMovingQuick() == false:
+			return
 		bStartChasingAfterDog = false
 
 		$HitParticle.emitting = true
 		body.Bump(global_position)
 		var instance = load("res://Prefabs/Environment/Bloodstain.tscn").instantiate()
-		instance.global_position= global_position
+		instance.global_position= global_position + Vector2(randf_range(-16,16), randf_range(-16,16))
 		Finder.GetBloodStains().add_child(instance)
 		if bCanStartChasing:
 			Hits -= 3

@@ -15,6 +15,9 @@ var PollTimer = null
 
 var PlayerRef = null
 
+var bFirstTimeChase = false
+
+
 func _ready():
 	bCanRecord = false
 	PollTimer = Timer.new()
@@ -33,7 +36,7 @@ func _process(delta):
 	Value += delta
 
 func Start():
-
+	bFirstTimeChase = false
 	Value = 0.0
 	DistanceTravelled = 0.0
 	FrogsKilled = 0

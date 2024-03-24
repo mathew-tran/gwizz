@@ -35,10 +35,14 @@ func _process(delta):
 			$CollideParticle.global_position =coll.get_position()
 			$CollideParticle.emitting = true
 
+func IsMovingQuick():
+	return velocity.length() > 10
+
 func Bump(pos):
 	velocity *= .5
 	$CollideParticle.global_position = pos
 	$CollideParticle.emitting = true
+	$AnimationPlayer.play("screen_shake")
 
 func _physics_process(delta):
 	Acceleration = Vector2.ZERO
