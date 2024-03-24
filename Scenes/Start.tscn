@@ -74,9 +74,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Button2" type="Button" parent="."]
 offset_left = -429.0
-offset_top = 211.0
+offset_top = 213.0
 offset_right = -48.0
-offset_bottom = 237.0
+offset_bottom = 239.0
 script = ExtResource("4_grnxf")
 
 [node name="Time2" type="Label" parent="."]
