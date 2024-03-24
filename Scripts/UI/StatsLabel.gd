@@ -6,5 +6,6 @@ func _ready():
 
 	var newText =  "STATS\n"
 	newText += GameTimer.GetFrogsKilled() + "\n"
-	newText += GameTimer.GetDistanceTravelled()
+	newText += GameTimer.GetDistanceTravelled() + "\n"
+	newText += GameTimer.GetDings()
 	text = newText

@@ -8,6 +8,7 @@ var OldRecord = 999999
 
 var DistanceTravelled = 0.0
 var FrogsKilled = 0
+var Dings = 0
 
 var LastPlayerPosition = Vector2.ZERO
 
@@ -40,6 +41,7 @@ func Start():
 	Value = 0.0
 	DistanceTravelled = 0.0
 	FrogsKilled = 0
+	Dings = 0
 	bCanRecord = true
 	PlayerRef = Finder.GetPlayer()
 	LastPlayerPosition = PlayerRef.global_position
@@ -73,3 +75,6 @@ func GetDistanceTravelled():
 	var amount = DistanceTravelled/10000
 
 	return str(snapped(amount, .01)) + "km travelled"
+
+func GetDings():
+	return str(Dings) + " dings"

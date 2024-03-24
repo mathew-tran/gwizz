@@ -34,6 +34,7 @@ func _process(delta):
 		if coll:
 			$CollideParticle.global_position =coll.get_position()
 			$CollideParticle.emitting = true
+			GameTimer.Dings += 1
 
 func IsMovingQuick():
 	return velocity.length() > 10
