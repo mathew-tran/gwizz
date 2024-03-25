@@ -29,6 +29,8 @@ func _ready():
 	PollTimer.timeout.connect(OnPollTimeout)
 
 func OnPollTimeout():
+	if is_instance_valid(PlayerRef) == false:
+		return
 	var currentPosition = PlayerRef.global_position
 	DistanceTravelled += currentPosition.distance_to(LastPlayerPosition)
 	LastPlayerPosition = currentPosition
