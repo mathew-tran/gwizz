@@ -47,6 +47,8 @@ func Bump(pos):
 	$CollideParticle.global_position = pos
 	$CollideParticle.emitting = true
 	$AnimationPlayer.play("screen_shake")
+	$CarCrash.pitch_scale = randf_range(0.8, 1.1)
+	$CarCrash.play()
 
 func _physics_process(delta):
 	Acceleration = Vector2.ZERO
@@ -88,6 +90,12 @@ func GetInput(delta):
 		$TailLights.visible = false
 		EmitSmokeTrail()
 		bIsAccelerating = true
+		$CarDrive.pitch_scale = lerpf(.7, 1.4, clamp((velocity.length() / 600), 0, 1))
+		$CarDrive.play()
+		print(velocity.length())
+	else:
+		$CarDrive.stop()
+
 
 	if Input.is_action_pressed("decelerate"):
 		Acceleration = transform.x * Braking
@@ -99,6 +107,7 @@ func GetInput(delta):
 		$TailLights.visible = true
 	else:
 		bIsBraking = false
+
 
 
 	if $TailLights.visible:
@@ -121,12 +130,15 @@ func GetInput(delta):
 		var weight = BuildUpPower / MaxBuildUpPower
 		var newScale = lerpf(.1, 1.2, weight)
 		EmitWheelieTrail(newScale)
+		$CarPivoting.pitch_scale = lerpf(.8, 1.1, weight)
+		$CarPivoting.play()
 		rotation_degrees += delta * turn * 120
 	elif bIsAccelerating and BuildUpPower > 0:
 		Acceleration *= BuildUpPower
 		BuildUpPower = 0
 	else:
 		BuildUpPower = 0
+		$CarPivoting.stop()
 
 
 func ApplyFriction():
