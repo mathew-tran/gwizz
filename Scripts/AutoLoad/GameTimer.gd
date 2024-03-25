@@ -17,6 +17,7 @@ var PollTimer = null
 var PlayerRef = null
 
 var bFirstTimeChase = false
+var bFirstTimePlay = true
 
 
 func _ready():

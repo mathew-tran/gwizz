@@ -24,6 +24,16 @@ func _ready():
 
 func StartGame():
 	await get_tree().process_frame
+
+	if GameTimer.bFirstTimePlay:
+		var controlString = "You seem new here. Here are the basic controls!\n"
+		controlString += "W - Accelerate\n"
+		controlString += "A / D - Turn \n"
+		controlString += "S - Reverse \n"
+		controlString += "SPACE / SHIFT - Brake\n"
+		Helper.SendDialogue(controlString)
+		await Finder.GetDialogue().DialogueComplete
+		GameTimer.bFirstTimePlay = false
 	for mission in Missions.get_children():
 		mission.queue_free()
 	StartMission()
