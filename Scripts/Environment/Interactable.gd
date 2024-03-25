@@ -14,3 +14,5 @@ func OnInteract():
 
 func GetInteractType():
 	return InteractType
+
+

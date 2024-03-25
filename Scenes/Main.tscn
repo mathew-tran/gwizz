@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://ck7tu23ne7fsa"]
+[gd_scene load_steps=63 format=3 uid="uid://ck7tu23ne7fsa"]
 
 [ext_resource type="TileSet" uid="uid://32lc8wffybep" path="res://Tileset/GroundTileset.tres" id="1_8uoc4"]
 [ext_resource type="PackedScene" uid="uid://1nfw2wq1lcai" path="res://Prefabs/Player.tscn" id="2_nbqxh"]
@@ -29,6 +29,8 @@
 [ext_resource type="PackedScene" uid="uid://bu5pxhnuw8rrx" path="res://Prefabs/Environment/DonutShopInteractable.tscn" id="19_08ann"]
 [ext_resource type="PackedScene" uid="uid://myqxpvpvppx5" path="res://Prefabs/Environment/PizzaShopInteractable.tscn" id="22_lyi0d"]
 [ext_resource type="PackedScene" uid="uid://b2qs374dn5nh6" path="res://Prefabs/Environment/CakeShopInteractable.tscn" id="24_tx72m"]
+[ext_resource type="Script" path="res://Scripts/MusicPlayerStart.gd" id="26_orp8b"]
+[ext_resource type="AudioStream" uid="uid://cuxvqy1qb3yci" path="res://Audio/Music/battlethemedraft.mp3" id="27_oo8ua"]
 [ext_resource type="PackedScene" uid="uid://fhkxrv3bb62" path="res://Prefabs/UI/Gwizzdar.tscn" id="29_jkcwg"]
 [ext_resource type="PackedScene" uid="uid://maiqkqvocsom" path="res://Prefabs/Environment/KibbleShopInteractable.tscn" id="32_c0f6n"]
 [ext_resource type="PackedScene" uid="uid://d10t2l48ox7cf" path="res://Prefabs/Environment/AlcoholShopInteractable.tscn" id="33_c7fb3"]
@@ -277,6 +279,9 @@ sources/9 = SubResource("TileSetAtlasSource_4gq5e")
 sources/10 = SubResource("TileSetAtlasSource_tpp6r")
 sources/11 = SubResource("TileSetAtlasSource_5rm7b")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1vve"]
+size = Vector2(56, 136)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o80p6"]
 size = Vector2(32, 32)
 
@@ -456,6 +461,25 @@ position = Vector2(2608, 336)
 [node name="Area2D3" parent="EnvironmentPieces" instance=ExtResource("24_tx72m")]
 position = Vector2(-192, 3088)
 
+[node name="MusicPlayerStart" type="Area2D" parent="."]
+process_mode = 3
+position = Vector2(-4488, 3000)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("26_orp8b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicPlayerStart"]
+position = Vector2(4, -28)
+shape = SubResource("RectangleShape2D_d1vve")
+
+[node name="Music" type="AudioStreamPlayer" parent="MusicPlayerStart"]
+stream = ExtResource("27_oo8ua")
+volume_db = -10.0
+
+[node name="Timer" type="Timer" parent="MusicPlayerStart"]
+wait_time = 10.0
+one_shot = true
+
 [node name="Gwizz" parent="." instance=ExtResource("19_2sp0l")]
 position = Vector2(-4488, 3000)
 
@@ -534,7 +558,7 @@ position = Vector2(-1808, 2672)
 [node name="Area2D4" parent="." instance=ExtResource("35_t8yte")]
 position = Vector2(-4832, 2896)
 
-[node name="Area2D5" type="Area2D" parent="."]
+[node name="Poster" type="Area2D" parent="."]
 position = Vector2(-3792, 2840)
 collision_layer = 8
 collision_mask = 0
@@ -547,8 +571,12 @@ Note on the bottom of the picture says,
 "
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Poster"]
 shape = SubResource("RectangleShape2D_o80p6")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D5"]
+[node name="Sprite2D" type="Sprite2D" parent="Poster"]
 texture = ExtResource("35_aaggd")
+
+[connection signal="body_entered" from="MusicPlayerStart" to="MusicPlayerStart" method="_on_body_entered"]
+[connection signal="finished" from="MusicPlayerStart/Music" to="MusicPlayerStart" method="_on_music_finished"]
+[connection signal="timeout" from="MusicPlayerStart/Timer" to="MusicPlayerStart" method="_on_timer_timeout"]

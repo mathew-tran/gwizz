@@ -97,6 +97,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Button2" type="Button" parent="Time2"]
+layout_mode = 0
 offset_left = -3.0
 offset_top = 108.5
 offset_right = 378.0
