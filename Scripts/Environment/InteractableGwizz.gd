@@ -32,7 +32,10 @@ func _on_area_entered(area):
 		print("die")
 		$Gwizz.texture = GwizzDeadSprite
 		bIsDead = true
+		$DeathSFX.play()
 		$DeadTimer.start()
+		$PantSFX.stop()
+		$PantTimer.stop()
 
 
 
@@ -42,3 +45,7 @@ func _on_timer_timeout():
 
 func OnDialogueComplete():
 	get_tree().change_scene_to_packed(load("res://Scenes/Start.tscn"))
+
+
+func _on_pant_timer_timeout():
+	$PantSFX.play()

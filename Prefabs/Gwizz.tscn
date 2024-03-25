@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkn3yewwgd3qg"]
+[gd_scene load_steps=11 format=3 uid="uid://bkn3yewwgd3qg"]
 
 [ext_resource type="Texture2D" uid="uid://dk8vf5accclqw" path="res://Art/Gwizz.png" id="1_e60kf"]
 [ext_resource type="Script" path="res://Scripts/Environment/InteractableGwizz.gd" id="1_sxkiq"]
+[ext_resource type="AudioStream" uid="uid://7chcvbmwsrwv" path="res://Audio/SFX/sfx_dogpainwhine.wav" id="3_8mv36"]
+[ext_resource type="AudioStream" uid="uid://2mckxll6j3r" path="res://Audio/SFX/sfx_dogpantingmed.wav" id="3_e4v68"]
 
 [sub_resource type="Animation" id="Animation_wu65x"]
 length = 0.001
@@ -99,5 +101,16 @@ shape = SubResource("CircleShape2D_f0h6w")
 wait_time = 2.0
 one_shot = true
 
+[node name="PantSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_e4v68")
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8mv36")
+
+[node name="PantTimer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="DeadTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="PantTimer" to="." method="_on_pant_timer_timeout"]
