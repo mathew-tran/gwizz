@@ -35,6 +35,7 @@ func _process(delta):
 			$CollideParticle.global_position =coll.get_position()
 			$CollideParticle.emitting = true
 			GameTimer.Dings += 1
+			$CarHit.play()
 
 func IsMovingQuick():
 	return velocity.length() > 10
@@ -85,6 +86,7 @@ func GetInput(delta):
 		$TailLights.visible = false
 		EmitSmokeTrail()
 		bIsAccelerating = true
+
 	if Input.is_action_pressed("decelerate"):
 		Acceleration = transform.x * Braking
 		$TailLights.visible = true
@@ -95,6 +97,15 @@ func GetInput(delta):
 		$TailLights.visible = true
 	else:
 		bIsBraking = false
+
+
+	if $TailLights.visible:
+		if IsMovingQuick():
+			if $CarBrake.is_playing() == false:
+				$CarBrake.play()
+	else:
+		$CarBrake.stop()
+
 
 	if Acceleration == Vector2.ZERO:
 		$TailLights.visible = false
