@@ -23,6 +23,8 @@ func _ready():
 func StartChasing():
 	if bCanStartChasing ==false or bIsDead:
 		return
+	$AudioStreamPlayer2D.pitch_scale = randf_range(.7, 1.4)
+	$AudioStreamPlayer2D.play()
 	if GameTimer.bFirstTimeChase == false:
 		Helper.SendDialogue("A frog demon has taken notice of Gwizz!\n Run the demon over to protect him from Gwizz!")
 		GameTimer.bFirstTimeChase = true

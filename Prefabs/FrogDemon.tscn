@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cawd5fvgrisk8"]
+[gd_scene load_steps=10 format=3 uid="uid://cawd5fvgrisk8"]
 
 [ext_resource type="Texture2D" uid="uid://cs1w8mp45l2c3" path="res://Art/frogdemon.png" id="1_rvrbt"]
 [ext_resource type="Script" path="res://Scripts/FrogDemon.gd" id="2_11oy1"]
 [ext_resource type="Texture2D" uid="uid://c87o1np1thpbr" path="res://Art/HitParticle.png" id="3_vem2y"]
 [ext_resource type="Texture2D" uid="uid://def80ay1lxh61" path="res://Art/FrogTarget.png" id="4_3yrsi"]
+[ext_resource type="AudioStream" uid="uid://pd16qhwpkr4e" path="res://Audio/SFX/sfx_demonfrog_attack.wav" id="5_0nhg3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31t1c"]
 size = Vector2(10, 25)
@@ -91,6 +92,9 @@ texture = ExtResource("4_3yrsi")
 libraries = {
 "": SubResource("AnimationLibrary_7g05p")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_0nhg3")
 
 [connection signal="body_entered" from="Sprite/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="HitTimer" to="." method="_on_hit_timer_timeout"]
