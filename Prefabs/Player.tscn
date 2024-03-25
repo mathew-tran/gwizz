@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://1nfw2wq1lcai"]
+[gd_scene load_steps=15 format=3 uid="uid://1nfw2wq1lcai"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_iyi34"]
 [ext_resource type="Texture2D" uid="uid://26pjyxdu1gx3" path="res://Art/Car.png" id="1_vwpdu"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://rdsbc4vrf50n" path="res://Art/smoke.png" id="4_dn5hl"]
 [ext_resource type="Script" path="res://Scripts/FX/LineTrail.gd" id="4_ovlyj"]
 [ext_resource type="Texture2D" uid="uid://c87o1np1thpbr" path="res://Art/HitParticle.png" id="5_3rkl8"]
+[ext_resource type="AudioStream" uid="uid://ra6cse28fe4w" path="res://Audio/SFX/sfx_carcrash3_8bit.wav" id="7_7mua7"]
 [ext_resource type="AudioStream" uid="uid://c6bbge2wd6lor" path="res://Audio/SFX/sfx_carbreak_long.wav" id="7_026xq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qw0p4"]
@@ -219,6 +220,7 @@ libraries = {
 speed_scale = 6.0
 
 [node name="CarHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_7mua7")
 
 [node name="CarBrake" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_026xq")

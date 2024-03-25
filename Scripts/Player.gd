@@ -29,13 +29,15 @@ var bStop = false
 func _ready():
 	$TailLights.visible = false
 func _process(delta):
-	if velocity != Vector2.ZERO:
+	if IsMovingQuick():
 		var coll = get_last_slide_collision()
 		if coll:
 			$CollideParticle.global_position =coll.get_position()
 			$CollideParticle.emitting = true
 			GameTimer.Dings += 1
-			$CarHit.play()
+			$CarHit.global_position = coll.get_position()
+			$CarHit.play(.2)
+
 
 func IsMovingQuick():
 	return velocity.length() > 10
