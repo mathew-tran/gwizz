@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmwfmn7xo6s4i"]
+[gd_scene load_steps=12 format=3 uid="uid://bmwfmn7xo6s4i"]
 
 [ext_resource type="Script" path="res://Scripts/Dialogue/Dialogue.gd" id="1_601aj"]
 [ext_resource type="FontFile" uid="uid://cln4puo47lfvm" path="res://Font/PressStart2P-Regular.ttf" id="1_vieb6"]
+[ext_resource type="AudioStream" uid="uid://cbeet12rxe28h" path="res://Audio/SFX/sfx_ui3.wav" id="3_ou5ge"]
 
 [sub_resource type="Animation" id="Animation_p5qsx"]
 length = 0.001
@@ -170,3 +171,7 @@ text = "(Left Click to continue)"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ou5ge")
+volume_db = -20.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxgcc1hrej6l"]
+[gd_scene load_steps=12 format=3 uid="uid://bxgcc1hrej6l"]
 
 [ext_resource type="TileSet" uid="uid://32lc8wffybep" path="res://Tileset/GroundTileset.tres" id="1_baops"]
 [ext_resource type="FontFile" uid="uid://cln4puo47lfvm" path="res://Font/PressStart2P-Regular.ttf" id="2_y06y6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/StartButton.gd" id="3_nfj0l"]
 [ext_resource type="Texture2D" uid="uid://by774m4t6utwb" path="res://Art/Kibble.png" id="4_f2yco"]
 [ext_resource type="Script" path="res://Scripts/CarSteerCodeButton.gd" id="4_grnxf"]
+[ext_resource type="AudioStream" uid="uid://bglpailoirl64" path="res://Audio/SFX/sfx_ui2.wav" id="4_vlnb2"]
 
 [sub_resource type="Theme" id="Theme_m47qq"]
 default_font = ExtResource("2_y06y6")
@@ -52,6 +53,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_4ttiv")
 text = "Start"
 script = ExtResource("3_nfj0l")
 metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button"]
+stream = ExtResource("4_vlnb2")
+volume_db = -20.0
 
 [node name="Time" type="Label" parent="."]
 anchors_preset = 8

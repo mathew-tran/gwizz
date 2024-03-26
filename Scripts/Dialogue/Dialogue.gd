@@ -33,6 +33,7 @@ func SplitString(s: String):
 	return result
 
 func ShowText(data):
+	$AudioStreamPlayer.play()
 	$Panel/Label.text =""
 	$Panel/Label.visible_ratio= 0
 	$AnimationPlayer.play("animIn")
@@ -72,6 +73,7 @@ func PaginateForward():
 	else:
 		bCanSkip = false
 		$AnimationPlayer.play("animText")
+		$AudioStreamPlayer.play()
 		bCanSkip = true
 		$Panel/Label.text = Data[Index]
 		UpdatePromptText()

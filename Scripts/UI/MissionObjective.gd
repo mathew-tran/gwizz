@@ -10,6 +10,7 @@ func StartTracking():
 	pass
 
 func CompleteObjective():
+	$AudioStreamPlayer.play()
 	$AnimationPlayer.play("animate")
 	await $AnimationPlayer.animation_finished
 	await get_tree().create_timer(2).timeout
