@@ -474,7 +474,7 @@ shape = SubResource("RectangleShape2D_d1vve")
 
 [node name="Music" type="AudioStreamPlayer" parent="MusicPlayerStart"]
 stream = ExtResource("27_oo8ua")
-volume_db = -10.0
+volume_db = -20.0
 
 [node name="Timer" type="Timer" parent="MusicPlayerStart"]
 wait_time = 10.0
