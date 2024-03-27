@@ -11,6 +11,7 @@ func StartTracking():
 	EventManager.AlcoholInteract.connect(OnAlcoholInteract)
 	var shop = Finder.GetInteractWithTag("AlcoholMission")
 	if shop:
+		Helper.SetTarget(shop.global_position)
 		var newContent = "You collect the drinks!\n"
 		newContent += "This party will be a fun one!"
 		shop.Content = newContent

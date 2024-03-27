@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://ck7tu23ne7fsa"]
+[gd_scene load_steps=64 format=3 uid="uid://ck7tu23ne7fsa"]
 
 [ext_resource type="TileSet" uid="uid://32lc8wffybep" path="res://Tileset/GroundTileset.tres" id="1_8uoc4"]
 [ext_resource type="PackedScene" uid="uid://1nfw2wq1lcai" path="res://Prefabs/Player.tscn" id="2_nbqxh"]
@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://maiqkqvocsom" path="res://Prefabs/Environment/KibbleShopInteractable.tscn" id="32_c0f6n"]
 [ext_resource type="PackedScene" uid="uid://d10t2l48ox7cf" path="res://Prefabs/Environment/AlcoholShopInteractable.tscn" id="33_c7fb3"]
 [ext_resource type="PackedScene" uid="uid://cawd5fvgrisk8" path="res://Prefabs/FrogDemon.tscn" id="33_qjefh"]
+[ext_resource type="PackedScene" uid="uid://bf2tlmq8fkbsh" path="res://Prefabs/Guide.tscn" id="34_3wg2q"]
 [ext_resource type="PackedScene" uid="uid://coi1xfuwagxqv" path="res://Prefabs/Environment/PartyShopInteractable.tscn" id="34_gbqou"]
 [ext_resource type="Texture2D" uid="uid://16ki4us7fc7v" path="res://Art/FrogSign.png" id="35_aaggd"]
 [ext_resource type="Script" path="res://Scripts/Environment/Interactable.gd" id="35_g71ee"]
@@ -524,6 +525,9 @@ position = Vector2(-2808, 744)
 
 [node name="Player" parent="." instance=ExtResource("2_nbqxh")]
 position = Vector2(-5024, 2984)
+
+[node name="Guide" parent="." instance=ExtResource("34_3wg2q")]
+position = Vector2(-5024, 2851)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

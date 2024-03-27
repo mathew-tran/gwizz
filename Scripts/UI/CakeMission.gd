@@ -11,6 +11,7 @@ func StartTracking():
 	EventManager.CakeInteract.connect(OnCakeInteract)
 	var cakeShop = Finder.GetInteractWithTag("CakeMission")
 	if cakeShop:
+		Helper.SetTarget(cakeShop.global_position)
 		var newContent = "You collect the Cake!\n"
 		newContent += "A large chocolate ice cream cake with fudge!.."
 		cakeShop.Content = newContent

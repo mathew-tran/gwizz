@@ -92,7 +92,6 @@ func GetInput(delta):
 		bIsAccelerating = true
 		$CarDrive.pitch_scale = lerpf(.7, 1.4, clamp((velocity.length() / 600), 0, 1))
 		$CarDrive.play()
-		print(velocity.length())
 	else:
 		$CarDrive.stop()
 

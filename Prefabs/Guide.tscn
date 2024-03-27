@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://bf2tlmq8fkbsh"]
+
+[ext_resource type="Texture2D" uid="uid://ravkvmirektx" path="res://Art/Guide.png" id="1_32qyl"]
+[ext_resource type="Script" path="res://Scripts/Guide.gd" id="2_8ktef"]
+[ext_resource type="Texture2D" uid="uid://cl1chbh83022" path="res://Art/GuideLock.png" id="3_ifn3f"]
+
+[sub_resource type="Animation" id="Animation_1sbhf"]
+resource_name = "animArrow"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GuideLocked:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pdcsb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GuideLocked:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j4yps"]
+_data = {
+"RESET": SubResource("Animation_pdcsb"),
+"animArrow": SubResource("Animation_1sbhf")
+}
+
+[node name="Control" type="Node2D"]
+script = ExtResource("2_8ktef")
+
+[node name="Guide" type="Sprite2D" parent="."]
+texture = ExtResource("1_32qyl")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="GuideLocked" type="Sprite2D" parent="."]
+texture = ExtResource("3_ifn3f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_j4yps")
+}
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

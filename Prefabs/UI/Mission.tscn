@@ -18,9 +18,9 @@ offset_bottom = 40.0
 script = ExtResource("1_qpsid")
 
 [node name="Panel" type="Panel" parent="."]
-custom_minimum_size = Vector2(1010, 40)
+custom_minimum_size = Vector2(1024, 40)
 layout_mode = 0
-offset_right = 1010.0
+offset_right = 1024.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_h8ypv")
 

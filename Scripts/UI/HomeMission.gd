@@ -11,6 +11,7 @@ func StartTracking():
 	EventManager.HomeInteract.connect(OnHomeInteract)
 	var shop = Finder.GetInteractWithTag("HomeMission")
 	if shop:
+		Helper.SetTarget(shop.global_position)
 		var newContent = "Time to prepare for the party!"
 		shop.Content = newContent
 

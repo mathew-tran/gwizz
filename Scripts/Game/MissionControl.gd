@@ -50,3 +50,7 @@ func StartMission():
 func OnMissionComplete():
 	print("mission completed!")
 	StartMission()
+
+
+func _on_timer_timeout():
+	pass # Replace with function body.

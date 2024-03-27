@@ -11,6 +11,7 @@ func StartTracking():
 	EventManager.KibbleInteract.connect(OnKibbleInteract)
 	var kibbleShop = Finder.GetInteractWithTag("KibbleMission")
 	if kibbleShop:
+		Helper.SetTarget(kibbleShop.global_position)
 		var newContent = "You collect the Kibble!\n"
 		newContent += "Gwizz will sure love this!.."
 		kibbleShop.Content = newContent

@@ -12,6 +12,7 @@ func _on_timer_timeout():
 			if demon.IsChasing():
 				bIsChasing = true
 				break
+	GameTimer.bIsChasing = bIsChasing
 	if bIsChasing:
 		visible = true
 	else:

@@ -3,9 +3,11 @@ extends MissionObjective
 var bIsTracking = false
 
 func StartTracking():
+
 	bIsTracking = true
 	var policeman = get_tree().get_nodes_in_group("Policeman1")
 	if policeman:
+		Helper.SetTarget(policeman[0].get_global_position())
 		var string = "'Greg.Before you start for Gwizz's big today. I bought some donuts for you at the donut shop!'\n"
 		string += "'It's on the east side'\n"
 		string += "'See you later!'\n"

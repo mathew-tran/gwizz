@@ -11,6 +11,7 @@ func StartTracking():
 	EventManager.PizzaInteract.connect(OnPizzaInteract)
 	var pizzaShop = Finder.GetInteractWithTag("PizzaMission")
 	if pizzaShop:
+		Helper.SetTarget(pizzaShop.global_position)
 		var newContent = "You collect the pizza's!\n"
 		newContent += "Ten Large Hawaiian Pizza's! Now on to the next in the list.."
 		pizzaShop.Content = newContent

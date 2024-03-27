@@ -19,6 +19,7 @@ var PlayerRef = null
 var bFirstTimeChase = false
 var bFirstTimePlay = true
 
+var bIsChasing = false
 
 func _ready():
 	bCanRecord = false

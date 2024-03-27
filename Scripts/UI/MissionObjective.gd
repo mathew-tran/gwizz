@@ -2,9 +2,11 @@ extends HBoxContainer
 class_name MissionObjective
 
 signal CompletedObjective
+var ObjectPosition = Vector2.ZERO
 
 func _ready():
 	$AnimationPlayer.play("animIn")
+	Helper.SetTarget(ObjectPosition)
 
 func StartTracking():
 	pass

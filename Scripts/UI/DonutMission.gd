@@ -12,6 +12,7 @@ func StartTracking():
 
 	var donutShop = Finder.GetInteractWithTag("DonutMission")
 	if donutShop:
+		Helper.SetTarget(donutShop.global_position)
 		var newContent = "You eat some donuts!\n"
 		newContent += "Tasty! Now on to the next in the list.."
 		donutShop.Content = newContent

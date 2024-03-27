@@ -11,6 +11,7 @@ func StartTracking():
 	EventManager.PartyHatInteract.connect(OnPartyConnect)
 	var shop = Finder.GetInteractWithTag("PartyMission")
 	if shop:
+		Helper.SetTarget(shop.global_position)
 		var newContent = "You collect the hats and baloons!\n"
 		newContent += "Gwizz will look amazing in his party hat!"
 		shop.Content = newContent
